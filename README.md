@@ -101,18 +101,6 @@ Where:
 ```python
 
 
-# -------------------------------------------------
-# Policy Evaluation Function
-# -------------------------------------------------
-
-
-# -------------------------------------------------
-# Display Output
-# -------------------------------------------------
-
-# Change the parameters and observe the results
-
-```
 def policy_evaluation(env, policy, gamma=0.99, theta=1e-8):
     V = np.zeros(env.observation_space.n)
     iteration = 0
@@ -138,7 +126,7 @@ def policy_evaluation(env, policy, gamma=0.99, theta=1e-8):
         if delta < theta:
             break
 
-
+```
 ---
 
 ## Output
