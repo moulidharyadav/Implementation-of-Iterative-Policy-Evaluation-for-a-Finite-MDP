@@ -131,14 +131,15 @@ def policy_evaluation(env, policy, gamma=0.99, theta=1e-8):
 
 ## Output
 <img width="1027" height="485" alt="image" src="https://github.com/user-attachments/assets/7ab68f92-1c09-4e4e-b896-dfae5b6e7fbf" />
-
+NO OF ITERTATIONS :-54
+State-Value Function as 4x4 Grid:
 
 ### Result
 
 Iterative policy evaluation was implemented successfully using the Gymnasium FrozenLake environment. The state-value function for the fixed random policy was estimated using the Bellman expectation equation.
 
 
-
+### inference
 
 ---
 
