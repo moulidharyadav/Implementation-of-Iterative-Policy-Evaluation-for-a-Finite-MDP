@@ -113,19 +113,39 @@ Where:
 # Change the parameters and observe the results
 
 ```
+def policy_evaluation(env, policy, gamma=0.99, theta=1e-8):
+    V = np.zeros(env.observation_space.n)
+    iteration = 0
+
+    while True:
+        delta = 0
+
+        for s in range(env.observation_space.n):
+            v = V[s]
+            new_v = 0
+
+            for a, action_prob in enumerate(policy[s]):
+                for prob, next_state, reward, done in env.P[s][a]:
+                    new_v += action_prob * prob * (
+                        reward + gamma * V[next_state] * (not done)
+                    )
+
+            V[s] = new_v
+            delta = max(delta, abs(v - V[s]))
+
+        iteration += 1
+
+        if delta < theta:
+            break
+
 
 ---
 
 ## Output
-
+<img width="1027" height="485" alt="image" src="https://github.com/user-attachments/assets/7ab68f92-1c09-4e4e-b896-dfae5b6e7fbf" />
 ```text
-
-Number of Iterations: 
-
+Number of Iterations: 54
 State-Value Function as 4x4 Grid:
-
-
-
 ```
 ---
 
