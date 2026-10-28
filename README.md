@@ -140,7 +140,21 @@ Iterative policy evaluation was implemented successfully using the Gymnasium Fro
 
 
 ### inference
+1. The state-value function \(V^\pi(s)\) estimates how good each state is when the agent follows a fixed random policy, where all four actions (up, down, left, and right) are equally likely.
 
+2. The values are highest for states close to the goal. State 14 has the highest value of 0.4336, followed by state 13 with 0.1703 and state 10 with 0.1378. This indicates that these states have a higher expected return under the random policy.
+
+3. The values generally decrease as the agent moves farther from the goal. The starting state 0 has a low value of 0.0124, indicating that the expected return from the starting state is small when the agent follows a random policy.
+
+4. The hole states (5, 7, 11, and 12) and the goal state (15) have a value of 0 because they are terminal states. Once the agent reaches a terminal state, no further rewards are collected.
+
+5. The overall state values are relatively small because the agent follows a random policy and the environment is slippery. The agent may move in an unintended direction, fall into a hole, or fail to reach the goal efficiently.
+
+6. The policy evaluation algorithm converged in 54 iterations. This means the state-value estimates became stable when the maximum change in the values satisfied the convergence threshold \(\theta = 10^{-8}\).
+
+7. The discount factor \(\gamma = 0.99\) gives significant importance to future rewards while slightly reducing the value of rewards received farther into the future. Therefore, states with a better expected path to the goal tend to have higher values.
+
+8. Policy evaluation only calculates the value of the existing policy; it does not improve the agent's decisions. Therefore, policy improvement or policy iteration can be applied next to develop a better policy that increases the probability of reaching the goal.
 ---
 
 
